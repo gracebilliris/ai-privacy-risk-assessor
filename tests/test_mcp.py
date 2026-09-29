@@ -54,6 +54,15 @@ def test_assess_privacy_risk_returns_structured_result() -> None:
     }
 
 
+def test_assess_privacy_risk_returns_error_for_unknown_risk_id() -> None:
+    payload = mcp_server.assess_privacy_risk(
+        system_name="MCP invalid risk test",
+        ratings={"NOPE-00": "present"},
+    )
+
+    assert payload == {"error": "Unknown risk id: NOPE-00"}
+
+
 def test_stdio_transport_real_client_server_round_trip(repo_root: Path) -> None:
     """Drives the actual MCP server subprocess over the real stdio protocol
     (not just calling the plain Python functions) using the official mcp

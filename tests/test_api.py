@@ -75,3 +75,34 @@ def test_assess_endpoint_round_trip_returns_expected_shape(client) -> None:
     assert "B-GV-01" not in payload["unrated_risks"]
     assert len(payload["unrated_risks"]) == 37
     assert len(payload["recommendations"]) == len(payload["flagged_high_risk"])
+
+
+def test_assess_endpoint_returns_400_for_unknown_risk_id(client) -> None:
+    response = client.post(
+        "/assess",
+        json={
+            "system_name": "API invalid risk test",
+            "ratings": [
+                {"risk_id": "NOPE-00", "rating": "present"},
+            ],
+        },
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"] == "Unknown risk id: NOPE-00"
+
+
+def test_assess_endpoint_returns_400_for_duplicate_risk_id(client) -> None:
+    response = client.post(
+        "/assess",
+        json={
+            "system_name": "API duplicate risk test",
+            "ratings": [
+                {"risk_id": "A-DL-01", "rating": "present"},
+                {"risk_id": "A-DL-01", "rating": "not_present"},
+            ],
+        },
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"] == "Duplicate rating for risk id: A-DL-01"

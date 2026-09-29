@@ -1,13 +1,14 @@
 from __future__ import annotations
 
 import json
-import socket
 import subprocess
 import sys
 import time
 from pathlib import Path
 
 import pytest
+
+from conftest import _free_port
 
 
 def _run_cli(*args: str, cwd: Path) -> subprocess.CompletedProcess[str]:
@@ -75,10 +76,26 @@ def test_assess_rejects_malformed_ratings_file(tmp_path: Path, repo_root: Path) 
     assert "Ratings JSON must be an object" in result.stderr
 
 
-def _free_port() -> int:
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
-        sock.bind(("127.0.0.1", 0))
-        return sock.getsockname()[1]
+def test_assess_rejects_unknown_risk_id(repo_root: Path) -> None:
+    invalid_path = repo_root / "tests" / "._cli_unknown_risk.json"
+    invalid_path.write_text(
+        json.dumps(
+            {
+                "system_name": "CLI invalid risk test",
+                "ratings": {"NOPE-00": "present"},
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    try:
+        result = _run_cli("assess", str(invalid_path), cwd=repo_root)
+    finally:
+        invalid_path.unlink(missing_ok=True)
+
+    assert result.returncode != 0
+    assert "Unknown risk id: NOPE-00" in result.stderr
+    assert "Traceback" not in result.stderr
 
 
 def test_serve_starts_a_working_http_server(repo_root: Path) -> None:
