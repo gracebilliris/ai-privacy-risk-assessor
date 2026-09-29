@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}CAPRA PIA{% endblock %}</title>
+    <link rel="stylesheet" href="{{ request.url_for('static', path='style.css') }}">
+  </head>
+  <body>
+    <div class="page">
+      <header class="site-header">
+        <div>
+          <p class="eyebrow">CAPRA PIA</p>
+          <h1>{% block page_title %}AI Privacy Risk Assessor{% endblock %}</h1>
+        </div>
+        <p class="research-note">
+          Research prototype only: outputs support human review and are not certified compliance determinations,
+          legal advice, or automated regulatory decisions.
+        </p>
+      </header>
+
+      <main>
+        {% block content %}{% endblock %}
+      </main>
+    </div>
+  </body>
+</html>

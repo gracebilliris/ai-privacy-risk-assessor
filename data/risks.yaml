@@ -1,0 +1,373 @@
+# Extracted from full-text PDFs (arXiv), not fabricated.
+# Source A: Billiris, G., Gill, A., & Bandara, M. (2025). Privacy in the Age
+#   of AI: A Taxonomy of Data Risks. arXiv:2510.02357. Table 3.
+# Source B: Billiris, G., Gill, A., & Bandara, M. (2025). A Taxonomy of Data
+#   Risks in AI and Quantum Computing (QAI) — A Systematic Review.
+#   arXiv:2509.20418. Risk table (Section 3/4).
+#
+# `frequency_pct` = share of literature mentions reported in the source
+# paper's table (not a severity score by itself — used as one weighting
+# input in the scoring engine design).
+
+source_a:
+  paper_id: "2510.02357"
+  citation: "Billiris, Gill & Bandara (2025), Privacy in the Age of AI: A Taxonomy of Data Risks"
+  categories:
+    - name: Dataset-Level
+      risks:
+        - id: A-DL-01
+          name: Unauthorised Data Access
+          frequency_count: 7
+          frequency_pct: 1.47
+          definition: >
+            Occurs when data is accessed by individuals or systems without
+            proper authorisation, either externally (hackers) or internally
+            (employees).
+        - id: A-DL-02
+          name: Unprotected Data Storage
+          frequency_count: 23
+          frequency_pct: 4.83
+          definition: >
+            Refers to storage of data without adequate security measures such
+            as encryption, access controls, or secure cloud configurations.
+        - id: A-DL-03
+          name: Unverified Data Sources
+          frequency_count: 26
+          frequency_pct: 5.46
+          definition: >
+            Using datasets from unknown or unreliable sources that may
+            contain sensitive, inaccurate, or illegal data.
+        - id: A-DL-04
+          name: Data Retention Failures
+          frequency_count: 15
+          frequency_pct: 3.15
+          definition: >
+            Storing personal or sensitive data longer than necessary,
+            increasing exposure to potential breaches.
+        - id: A-DL-05
+          name: Insufficient Anonymisation
+          frequency_count: 35
+          frequency_pct: 7.35
+          definition: >
+            Attempts to anonymise data fail, leaving information that can
+            still identify individuals.
+
+    - name: Model-Level
+      risks:
+        - id: A-ML-01
+          name: Membership Inference Attacks
+          frequency_count: 40
+          frequency_pct: 8.40
+          definition: >
+            Attackers attempt to determine whether specific data records were
+            used in training an AI model.
+        - id: A-ML-02
+          name: Model Inversion Attacks
+          frequency_count: 35
+          frequency_pct: 7.35
+          definition: >
+            Reconstructing sensitive or private data from model outputs or
+            predictions.
+        - id: A-ML-03
+          name: Training Data Memorisation
+          frequency_count: 42
+          frequency_pct: 8.82
+          definition: >
+            AI models unintentionally "remember" exact sensitive information
+            from the training dataset in their outputs.
+        - id: A-ML-04
+          name: Prompt Injection / Output Manipulation
+          frequency_count: 5
+          frequency_pct: 1.05
+          definition: >
+            Malicious inputs designed to make AI reveal hidden or
+            confidential information.
+        - id: A-ML-05
+          name: Adversarial Querying
+          frequency_count: 5
+          frequency_pct: 1.05
+          definition: >
+            Systematic attempts to extract private or sensitive information
+            by exploiting model behaviour.
+
+    - name: Infrastructure-Level
+      risks:
+        - id: A-IL-01
+          name: API Exploitation
+          frequency_count: 33
+          frequency_pct: 6.93
+          definition: >
+            Unauthorised use or abuse of AI system endpoints, which can
+            expose data or functionality.
+        - id: A-IL-02
+          name: Network Vulnerabilities
+          frequency_count: 28
+          frequency_pct: 5.88
+          definition: >
+            Weaknesses in networks (e.g., unpatched servers, open ports,
+            insecure protocols) that can be exploited to access data.
+        - id: A-IL-03
+          name: Supply Chain Compromise
+          frequency_count: 5
+          frequency_pct: 1.05
+          definition: >
+            Introduction of malicious or vulnerable components from
+            third-party software, libraries, or pre-trained models.
+        - id: A-IL-04
+          name: Configuration Errors
+          frequency_count: 34
+          frequency_pct: 7.14
+          definition: >
+            Insecure default settings or misconfigurations in AI platforms
+            that expose data or functionality.
+        - id: A-IL-05
+          name: Logging/Telemetry Leaks
+          frequency_count: 20
+          frequency_pct: 4.20
+          definition: >
+            Recording sensitive information in logs or telemetry without
+            proper safeguards or redaction.
+
+    - name: Insider Threat
+      risks:
+        - id: A-IT-01
+          name: Malicious Insider Actions
+          frequency_count: 25
+          frequency_pct: 5.25
+          definition: >
+            Intentional actions by internal personnel to steal, expose, or
+            misuse sensitive data.
+        - id: A-IT-02
+          name: Human Error
+          frequency_count: 45
+          frequency_pct: 9.45
+          definition: >
+            Accidental mistakes by individuals, such as sending data to
+            wrong recipients or mismanaging sensitive files.
+          note: "Single most cited risk factor across the whole taxonomy."
+        - id: A-IT-03
+          name: Privilege Mismanagement
+          frequency_count: 37
+          frequency_pct: 7.77
+          definition: >
+            Excessive or inappropriate access rights granted to employees or
+            contractors, increasing the risk of misuse.
+        - id: A-IT-04
+          name: Training/Operational Negligence
+          frequency_count: 16
+          frequency_pct: 3.36
+          definition: >
+            Lack of awareness, training, or adherence to policies, resulting
+            in unintentional data exposure.
+
+source_b:
+  paper_id: "2509.20418"
+  citation: "Billiris, Gill & Bandara (2025), A Taxonomy of Data Risks in AI and Quantum Computing (QAI) — A Systematic Review"
+  categories:
+    - name: Governance & Risk Management
+      risks:
+        - id: B-GV-01
+          name: AI Governance & Privacy Compliance Risks
+          category_tag: P
+          frequency_count: 50
+          frequency_pct: 7.0
+          definition: >
+            Risks associated with the alignment of AI governance frameworks
+            with privacy compliance standards, leading to inadequate privacy
+            protections.
+        - id: B-GV-02
+          name: Evolving Regulatory Compliance Risks
+          category_tag: P
+          frequency_count: 39
+          frequency_pct: 5.46
+          definition: >
+            Risks arising from changing regulatory requirements that may
+            leave an organisation non-compliant with new laws or privacy
+            standards.
+        - id: B-GV-03
+          name: Cross-Border Compliance & Data Sovereignty
+          category_tag: P
+          frequency_count: 30
+          frequency_pct: 4.2
+          definition: >
+            Risks related to non-compliance with varying data protection
+            laws across different countries, impacting international data
+            flow and sovereignty.
+        - id: B-GV-04
+          name: Regulatory Uncertainty in AI-Quantum Systems
+          category_tag: P
+          frequency_count: 28
+          frequency_pct: 3.92
+          definition: >
+            Risks from unclear or inconsistent regulations surrounding the
+            integration of AI with quantum systems, potentially leading to
+            privacy lapses.
+
+    - name: Privacy & Security Risk Assessment
+      risks:
+        - id: B-RA-01
+          name: Emerging Technology Privacy Risks
+          category_tag: P
+          frequency_count: 47
+          frequency_pct: 6.58
+          definition: >
+            Risks related to the privacy and security implications of
+            rapidly evolving technologies — especially AI and quantum
+            systems — including the lack of mature standards, ethical
+            uncertainty, and risks from novel data processing capabilities.
+        - id: B-RA-02
+          name: Sensitive Data Exposure in Training Models
+          category_tag: S
+          frequency_count: 27
+          frequency_pct: 3.78
+          definition: >
+            Risks of privacy breaches and security vulnerabilities due to
+            exposure of personal or sensitive data during AI model training,
+            including memorisation, leakage via outputs, or weak training
+            data protections.
+        - id: B-RA-03
+          name: Post-Quantum Cryptography Risks
+          category_tag: S
+          frequency_count: 23
+          frequency_pct: 3.22
+          definition: >
+            Risks associated with the security and privacy limitations of
+            current cryptographic methods in the face of quantum computing,
+            and uncertainties around post-quantum cryptographic algorithm
+            adoption, implementation, and resilience.
+        - id: B-RA-04
+          name: Emerging AI Threats & Data Vulnerabilities
+          category_tag: S
+          frequency_count: 23
+          frequency_pct: 3.22
+          definition: >
+            Threats from the use or misuse of AI that introduce new attack
+            surfaces or amplify privacy risks, such as adversarial inputs,
+            model inversion, data poisoning, and unauthorised inference.
+
+    - name: Privacy & Security Controls Implementation
+      risks:
+        - id: B-CI-01
+          name: Weak Access Controls & Data Security Risks
+          category_tag: S
+          frequency_count: 36
+          frequency_pct: 5.04
+          definition: >
+            Risks stemming from inadequate security measures, such as weak
+            authentication, insufficient authorisation, or poor encryption,
+            leading to unauthorised access or exposure of private data.
+        - id: B-CI-02
+          name: AI Privacy Control Implementation Gaps
+          category_tag: P
+          frequency_count: 24
+          frequency_pct: 3.36
+          definition: >
+            Gaps in the design or enforcement of privacy-related controls
+            (e.g., anonymisation, data minimisation, consent tracking) within
+            AI workflows, which create both privacy vulnerabilities and
+            potential security loopholes.
+        - id: B-CI-03
+          name: Technical Privacy Control Gaps
+          category_tag: P
+          frequency_count: 24
+          frequency_pct: 3.36
+          definition: >
+            Shortcomings in technical safeguards meant to enforce privacy —
+            such as differential privacy, homomorphic encryption, or secure
+            federated learning — which can also weaken system security if
+            poorly implemented or misconfigured.
+        - id: B-CI-04
+          name: Privacy Safeguard Deficiencies in AI
+          category_tag: P
+          frequency_count: 23
+          frequency_pct: 3.22
+          definition: >
+            Risks from insufficient or poorly integrated privacy protection
+            mechanisms in AI systems, including both organisational policy
+            gaps and technical safeguards, potentially compromising both
+            user privacy and system security.
+
+    - name: User-Centric Privacy Considerations
+      risks:
+        - id: B-UC-01
+          name: Transparency & User Rights Risks
+          category_tag: P
+          frequency_count: 49
+          frequency_pct: 6.86
+          definition: >
+            Risks from insufficient transparency about how user data is
+            handled, leading to violations of user rights.
+        - id: B-UC-02
+          name: Bias & Fairness in AI Privacy
+          category_tag: P
+          frequency_count: 49
+          frequency_pct: 6.86
+          definition: >
+            Risks from AI systems that introduce bias or unfairness in data
+            handling, impacting user privacy.
+        - id: B-UC-03
+          name: User Consent & Control Mechanisms
+          category_tag: P
+          frequency_count: 47
+          frequency_pct: 6.58
+          definition: >
+            Risks from inadequate mechanisms for users to give informed
+            consent and control how their data is used.
+          note: >
+            Consolidated: the source table also lists a near-identical row
+            "User Consent & Control Risks" (Count: 38; 5.32%) which was
+            judged a duplication artefact and merged into this item rather
+            than kept as a separate risk — dropping tool-list count for
+            Paper B from 22 to 21 (kept for auditability, not deleted from
+            the record; see MERGE_LOG.md).
+        - id: B-UC-04
+          name: Informed Consent Deficiencies
+          category_tag: P
+          frequency_count: 42
+          frequency_pct: 5.88
+          definition: >
+            Risks from inadequate processes for obtaining informed consent,
+            potentially violating privacy rights.
+        - id: B-UC-05
+          name: Loss of User Control Risks
+          category_tag: P
+          frequency_count: 39
+          frequency_pct: 5.46
+          definition: >
+            Risks from users losing control over their personal data when
+            interacting with AI systems.
+
+    - name: Continuous Monitoring & Improvement
+      risks:
+        - id: B-CM-01
+          name: Compliance Monitoring Gaps
+          category_tag: P
+          frequency_count: 23
+          frequency_pct: 3.22
+          definition: >
+            Risks due to insufficient monitoring of compliance with privacy
+            regulations, leading to potential violations.
+        - id: B-CM-02
+          name: Ongoing AI Auditing & Bias Mitigation
+          category_tag: P
+          frequency_count: 23
+          frequency_pct: 3.22
+          definition: >
+            Risks from lack of continuous auditing and bias mitigation in AI
+            systems that could compromise privacy.
+        - id: B-CM-03
+          name: Monitoring Evolving AI Privacy Risks
+          category_tag: P
+          frequency_count: 23
+          frequency_pct: 3.22
+          definition: >
+            Risks from inadequate monitoring of new and emerging AI privacy
+            threats, creating vulnerabilities.
+        - id: B-CM-04
+          name: Failure to Adapt to Emerging Risks
+          category_tag: P
+          frequency_count: 23
+          frequency_pct: 3.22
+          definition: >
+            Risks from the inability to detect and respond to new privacy
+            threats from emerging AI technologies.

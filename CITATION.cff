@@ -1,0 +1,66 @@
+cff-version: 1.2.0
+title: "ai-privacy-risk-assessor"
+message: "If you use this software artefact, please cite it using the metadata from this file."
+type: software
+authors:
+  - family-names: Billiris
+    given-names: Grace
+    orcid: "https://orcid.org/0009-0001-3122-9985"
+    affiliation: "University of Technology Sydney"
+repository-code: "https://github.com/gracebilliris/ai-privacy-risk-assessor"
+url: "https://github.com/gracebilliris/ai-privacy-risk-assessor"
+license: MIT
+version: "0.1.0"
+date-released: "2026-09-29"
+doi: "10.5281/zenodo.TODO" # TODO after mint
+abstract: >
+  ai-privacy-risk-assessor is a standalone Python tool for AI Privacy Impact
+  Assessment across CLI, REST API, MCP, and web-form interfaces. It implements
+  a research-grounded taxonomy of AI and AI+Quantum data privacy risks derived
+  from two published 2025 arXiv papers.
+keywords:
+  - privacy
+  - privacy impact assessment
+  - AI privacy
+  - quantum AI
+  - MCP
+  - FastAPI
+  - risk taxonomy
+preferred-citation:
+  type: software
+  title: "ai-privacy-risk-assessor"
+  authors:
+    - family-names: Billiris
+      given-names: Grace
+      orcid: "https://orcid.org/0009-0001-3122-9985"
+      affiliation: "University of Technology Sydney"
+  repository-code: "https://github.com/gracebilliris/ai-privacy-risk-assessor"
+  license: MIT
+  version: "0.1.0"
+  date-released: "2026-09-29"
+  doi: "10.5281/zenodo.TODO" # TODO after mint
+references:
+  - type: article
+    title: "Privacy in the Age of AI: A Taxonomy of Data Risks"
+    authors:
+      - family-names: Billiris
+        given-names: Grace
+      - family-names: Gill
+        given-names: Asif
+      - family-names: Bandara
+        given-names: Madhushi
+    journal: "arXiv"
+    year: 2025
+    doi: "10.48550/arXiv.2510.02357"
+  - type: article
+    title: "A Taxonomy of Data Risks in AI and Quantum Computing (QAI) — A Systematic Review"
+    authors:
+      - family-names: Billiris
+        given-names: Grace
+      - family-names: Gill
+        given-names: Asif
+      - family-names: Bandara
+        given-names: Madhushi
+    journal: "arXiv"
+    year: 2025
+    doi: "10.48550/arXiv.2509.20418"

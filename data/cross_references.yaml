@@ -1,0 +1,107 @@
+# Cross-references between Paper A (AI privacy taxonomy) and Paper B (QAI
+# taxonomy) risk items.
+#
+# Method: an entry is included ONLY where Paper B's own published definition
+# text explicitly names the concept/mechanism that Paper A gives its own
+# dedicated risk item to (quoted below as `evidence_quote`). This is a
+# cross-reference, not a merge — both source items remain intact and
+# independently citable in risks.yaml. Confidence reflects how tight the
+# textual match is:
+#   high   = the exact term/mechanism appears in the B definition
+#   medium = a closely related term appears, judgement applied
+#
+# This mapping is the tool team's analysis, not something either paper
+# states explicitly as an equivalence — sanity-check with Asif/Madhushi
+# before treating it as authoritative in the scoring rubric.
+
+cross_references:
+  - a_risk: A-ML-03 # Training Data Memorisation
+    b_risk: B-RA-02 # Sensitive Data Exposure in Training Models
+    confidence: high
+    evidence_quote: >
+      B-RA-02 definition names "memorisation, leakage via outputs, or weak
+      training data protections" as examples of this broader risk.
+
+  - a_risk: A-ML-02 # Model Inversion Attacks
+    b_risk: B-RA-02 # Sensitive Data Exposure in Training Models
+    confidence: medium
+    evidence_quote: >
+      B-RA-02's "leakage via outputs" mirrors A-ML-02's mechanism
+      (reconstructing sensitive data from model outputs/predictions).
+
+  - a_risk: A-ML-02 # Model Inversion Attacks
+    b_risk: B-RA-04 # Emerging AI Threats & Data Vulnerabilities
+    confidence: high
+    evidence_quote: >
+      B-RA-04 definition explicitly lists "model inversion" as an example
+      attack surface.
+
+  - a_risk: A-ML-01 # Membership Inference Attacks
+    b_risk: B-RA-04 # Emerging AI Threats & Data Vulnerabilities
+    confidence: medium
+    evidence_quote: >
+      B-RA-04 definition lists "unauthorised inference" as an example,
+      closely related to (though not verbatim) membership inference.
+
+  - a_risk: A-ML-05 # Adversarial Querying
+    b_risk: B-RA-04 # Emerging AI Threats & Data Vulnerabilities
+    confidence: medium
+    evidence_quote: >
+      B-RA-04 definition lists "adversarial inputs" as an example attack
+      surface, matching the general mechanism of adversarial querying.
+
+  - a_risk: A-ML-04 # Prompt Injection / Output Manipulation
+    b_risk: B-RA-04 # Emerging AI Threats & Data Vulnerabilities
+    confidence: medium
+    evidence_quote: >
+      B-RA-04 definition lists "adversarial inputs" as an example attack
+      surface; prompt injection is a specific instance of adversarial input.
+
+  - a_risk: A-DL-05 # Insufficient Anonymisation
+    b_risk: B-CI-02 # AI Privacy Control Implementation Gaps
+    confidence: high
+    evidence_quote: >
+      B-CI-02 definition explicitly lists "anonymisation" (alongside data
+      minimisation, consent tracking) as an example privacy-related control.
+
+  - a_risk: A-DL-01 # Unauthorised Data Access
+    b_risk: B-CI-01 # Weak Access Controls & Data Security Risks
+    confidence: high
+    evidence_quote: >
+      B-CI-01 definition explicitly covers risks "leading to unauthorised
+      access ... of private data".
+
+  - a_risk: A-DL-02 # Unprotected Data Storage
+    b_risk: B-CI-01 # Weak Access Controls & Data Security Risks
+    confidence: medium
+    evidence_quote: >
+      B-CI-01 definition names "poor encryption" as an example cause,
+      matching A-DL-02's storage-security concern.
+
+  - a_risk: A-IL-01 # API Exploitation
+    b_risk: B-CI-01 # Weak Access Controls & Data Security Risks
+    confidence: medium
+    evidence_quote: >
+      B-CI-01's "insufficient authorisation ... leading to unauthorised
+      access" covers the same mechanism as API endpoint exploitation, at a
+      higher level of abstraction.
+
+  - a_risk: A-IT-03 # Privilege Mismanagement
+    b_risk: B-CI-01 # Weak Access Controls & Data Security Risks
+    confidence: medium
+    evidence_quote: >
+      B-CI-01's "insufficient authorisation" is the governance-level
+      counterpart of A-IT-03's excessive/inappropriate access rights.
+
+# Deliberately NOT mapped (no explicit textual overlap found, left as
+# independent, category-specific items):
+#   - All of Paper A's Insider Threat risks except A-IT-03 (Malicious Insider
+#     Actions, Human Error, Training/Operational Negligence)
+#   - Paper A Infrastructure-Level items other than API Exploitation
+#     (Network Vulnerabilities, Supply Chain Compromise, Configuration
+#     Errors, Logging/Telemetry Leaks)
+#   - All of Paper B's Governance, User-Centric, and Continuous Monitoring
+#     categories except where listed above — these dimensions (regulatory,
+#     user rights/consent, ongoing auditing) have no equivalent items in
+#     Paper A at all, which is one of the reasons v1 scope covers both
+#     papers rather than Paper A alone.

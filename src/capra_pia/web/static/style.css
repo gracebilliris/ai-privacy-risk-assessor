@@ -1,0 +1,273 @@
+:root {
+  color-scheme: light;
+  --bg: #f4f7fb;
+  --panel: #ffffff;
+  --border: #d7dfeb;
+  --text: #1d2733;
+  --muted: #607086;
+  --primary: #275dad;
+  --primary-soft: #dce9fb;
+  --danger: #9c2f2f;
+  --danger-soft: #fde7e7;
+  --success: #1f7a45;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+.site-header {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.25rem;
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+.research-note {
+  margin: 0;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--primary-soft);
+  color: var(--muted);
+}
+
+.panel {
+  margin-bottom: 1rem;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--panel);
+  box-shadow: 0 8px 24px rgba(39, 93, 173, 0.06);
+}
+
+.intro-panel {
+  color: var(--muted);
+}
+
+.error-panel {
+  border-color: #f0b8b8;
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.category-count,
+.risk-meta,
+.secondary-link,
+.citation,
+.risk-note {
+  color: var(--muted);
+}
+
+.assessment-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.risk-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.risk-card {
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fbfcff;
+}
+
+.risk-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.risk-definition {
+  margin-bottom: 1rem;
+}
+
+.field-grid,
+.score-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.field-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.score-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.field-label,
+summary {
+  display: inline-block;
+  margin-bottom: 0.45rem;
+  font-weight: 600;
+}
+
+input,
+select,
+button {
+  width: 100%;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font: inherit;
+  background: #fff;
+  color: inherit;
+}
+
+button {
+  width: auto;
+  min-width: 180px;
+  border: 0;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1d4b8d;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.score-card {
+  padding: 1rem;
+  border-radius: 12px;
+  background: #f7faff;
+  border: 1px solid var(--border);
+}
+
+.score-label {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.score-value {
+  font-size: 1.9rem;
+}
+
+.score-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.score-table th,
+.score-table td {
+  padding: 0.8rem 0.6rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.bar-track {
+  width: 180px;
+  max-width: 100%;
+  height: 0.8rem;
+  border-radius: 999px;
+  background: #e7eef9;
+  overflow: hidden;
+}
+
+.bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--primary), #5a8fe0);
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: #fff1d6;
+  color: #8b5a00;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.cross-ref-block {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.plain-list {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+details {
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 720px) {
+  .section-heading,
+  .risk-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .actions {
+    justify-content: stretch;
+  }
+
+  button,
+  .bar-track {
+    width: 100%;
+  }
+}

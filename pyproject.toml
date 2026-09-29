@@ -1,0 +1,37 @@
+[project]
+name = "capra-pia"
+version = "0.1.0"
+description = "CAPRA-based AI Privacy Impact Assessment tool — CLI/API/MCP, grounded in a published taxonomy of AI and QAI data privacy risks."
+authors = [{ name = "Grace Billiris" }]
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+dependencies = [
+    "pyyaml>=6.0",
+    "pydantic>=2.5",
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.27",
+    "mcp>=1.0",
+    "jinja2>=3.1",
+    "python-multipart>=0.0.9",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "httpx>=0.27",
+]
+
+[project.scripts]
+capra-pia = "capra_pia.cli:main"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

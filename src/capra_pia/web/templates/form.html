@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}Assessment Form · CAPRA PIA{% endblock %}
+{% block page_title %}AI Privacy Risk Assessment Form{% endblock %}
+
+{% block content %}
+  <section class="panel intro-panel">
+    <p>
+      Review each risk below, choose the best matching rating, and optionally record supporting evidence for your assessment.
+    </p>
+  </section>
+
+  {% if error_message %}
+    <section class="panel error-panel">
+      <strong>Unable to complete request.</strong>
+      <div>{{ error_message }}</div>
+    </section>
+  {% endif %}
+
+  <form method="post" action="{{ request.url_for('ui_submit') }}" class="assessment-form">
+    <section class="panel">
+      <label for="system_name" class="field-label">System name</label>
+      <input
+        id="system_name"
+        name="system_name"
+        type="text"
+        value="{{ system_name }}"
+        placeholder="e.g. CAPRA research assistant"
+        required
+      >
+    </section>
+
+    {% for category, risks in grouped_risks.items() %}
+      <section class="panel">
+        <div class="section-heading">
+          <h2>{{ category }}</h2>
+          <span class="category-count">{{ risks|length }} risks</span>
+        </div>
+
+        <div class="risk-list">
+          {% for risk in risks %}
+            <article class="risk-card">
+              <div class="risk-card-header">
+                <div>
+                  <h3>{{ risk.id }} — {{ risk.name }}</h3>
+                  <p class="risk-meta">
+                    Source paper {{ risk.source_paper }} · Frequency {{ "%.1f"|format(risk.frequency_pct) }}%
+                    {% if risk.category_tag %}· Tag {{ risk.category_tag }}{% endif %}
+                  </p>
+                </div>
+              </div>
+
+              <p class="risk-definition">{{ risk.definition }}</p>
+
+              {% if risk.note %}
+                <p class="risk-note"><strong>Note:</strong> {{ risk.note }}</p>
+              {% endif %}
+
+              <div class="field-grid">
+                <div>
+                  <label for="rating__{{ risk.id }}" class="field-label">Rating</label>
+                  <select id="rating__{{ risk.id }}" name="rating__{{ risk.id }}">
+                    {% set chosen = selected_ratings.get(risk.id, 'unknown') %}
+                    <option value="present" {% if chosen == 'present' %}selected{% endif %}>Present</option>
+                    <option value="not_present" {% if chosen == 'not_present' %}selected{% endif %}>Not present</option>
+                    <option value="not_applicable" {% if chosen == 'not_applicable' %}selected{% endif %}>Not applicable</option>
+                    <option value="unknown" {% if chosen == 'unknown' %}selected{% endif %}>Unknown</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="evidence__{{ risk.id }}" class="field-label">Evidence note (optional)</label>
+                  <input
+                    id="evidence__{{ risk.id }}"
+                    name="evidence__{{ risk.id }}"
+                    type="text"
+                    value="{{ evidence_notes.get(risk.id, '') }}"
+                    placeholder="Observation, document link, or reviewer note"
+                  >
+                </div>
+              </div>
+
+              <details>
+                <summary>Citation</summary>
+                <p class="citation">{{ risk.source_citation }}</p>
+              </details>
+            </article>
+          {% endfor %}
+        </div>
+      </section>
+    {% endfor %}
+
+    <div class="actions">
+      <button type="submit">Run assessment</button>
+    </div>
+  </form>
+{% endblock %}

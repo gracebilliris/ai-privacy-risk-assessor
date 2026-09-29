@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block title %}Assessment Report · CAPRA PIA{% endblock %}
+{% block page_title %}Assessment Report{% endblock %}
+
+{% block content %}
+  <section class="panel">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">System assessed</p>
+        <h2>{{ result.system_name }}</h2>
+      </div>
+      <a class="secondary-link" href="{{ request.url_for('ui_form') }}">Start another assessment</a>
+    </div>
+
+    <div class="score-grid">
+      <div class="score-card">
+        <span class="score-label">Overall score</span>
+        <strong class="score-value">{{ "%.1f"|format(result.overall_score_pct) }}%</strong>
+      </div>
+      <div class="score-card">
+        <span class="score-label">Flagged high-risk items</span>
+        <strong class="score-value">{{ result.flagged_high_risk|length }}</strong>
+      </div>
+      <div class="score-card">
+        <span class="score-label">Unrated risks</span>
+        <strong class="score-value">{{ result.unrated_risks|length }}</strong>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Category scores</h2>
+    <table class="score-table">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Present</th>
+          <th>Applicable</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for score in result.category_scores %}
+          <tr>
+            <td>{{ score.category }}</td>
+            <td>{{ score.present_risks }}</td>
+            <td>{{ score.applicable_risks }}</td>
+            <td>
+              <div class="bar-row">
+                <div class="bar-track" aria-hidden="true">
+                  <span class="bar-fill" style="width: {{ score.score_pct }}%;"></span>
+                </div>
+                <span>{{ "%.1f"|format(score.score_pct) }}%</span>
+              </div>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+  <section class="panel">
+    <h2>Flagged high-risk items</h2>
+    {% if result.flagged_high_risk %}
+      <div class="risk-list">
+        {% for flagged in result.flagged_high_risk %}
+          <article class="risk-card">
+            <div class="risk-card-header">
+              <div>
+                <h3>{{ flagged.risk.id }} — {{ flagged.risk.name }}</h3>
+                <p class="risk-meta">
+                  {{ flagged.risk.category }} · Rated {{ flagged.rating.value.replace('_', ' ') }}
+                </p>
+              </div>
+              <span class="status-badge">High risk</span>
+            </div>
+
+            <p class="risk-definition">{{ flagged.risk.definition }}</p>
+            <p class="citation"><strong>Citation:</strong> {{ flagged.risk.source_citation }}</p>
+
+            {% if flagged.related_cross_references %}
+              <div class="cross-ref-block">
+                <strong>Related cross references</strong>
+                <ul>
+                  {% for ref in flagged.related_cross_references %}
+                    <li>
+                      {{ ref.a_risk }} ↔ {{ ref.b_risk }} ({{ ref.confidence }}) — {{ ref.evidence_quote }}
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>No high-risk items were flagged in this assessment.</p>
+    {% endif %}
+  </section>
+
+  <section class="panel">
+    <h2>Recommendations</h2>
+    {% if result.recommendations %}
+      <ul class="plain-list">
+        {% for recommendation in result.recommendations %}
+          <li>{{ recommendation }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No additional recommendations were returned.</p>
+    {% endif %}
+  </section>
+
+  <section class="panel">
+    <h2>Unrated risks</h2>
+    {% if unrated_risk_details %}
+      <ul class="plain-list">
+        {% for risk in unrated_risk_details %}
+          <li><strong>{{ risk.id }}</strong> — {{ risk.name }}</li>
+        {% endfor %}
+      </ul>
+    {% elif result.unrated_risks %}
+      <ul class="plain-list">
+        {% for risk_id in result.unrated_risks %}
+          <li>{{ risk_id }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>All taxonomy risks were included in the submitted assessment.</p>
+    {% endif %}
+  </section>
+{% endblock %}
