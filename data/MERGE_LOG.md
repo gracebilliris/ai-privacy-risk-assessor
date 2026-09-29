@@ -20,9 +20,9 @@ No statistics were averaged or combined — `B-UC-03`'s original count/%
 numerically, since the two counts likely reflect the same underlying
 literature mentions counted twice rather than two additive risks.
 
-⚠️ This is an editorial judgement call by the tool team, not a correction
-issued by the paper's authors. Recommend a quick sanity check with
-Asif/Madhushi before treating `risks.yaml` as final/citable.
+✅ Confirmed by the lead author (2026-09-29): B-UC-06 and B-UC-03 are indeed
+the same underlying risk; the merge is correct and `risks.yaml` can be
+treated as final on this point.
 
 ## 2. Cross-references between Paper A and Paper B risks
 
