@@ -6,6 +6,10 @@
 
 ## Quick Demo
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-client--side%20Pages-0a2540?style=flat-square)](https://gracebilliris.github.io/ai-privacy-risk-assessor/)
+
+Open the static client-side demo at <https://gracebilliris.github.io/ai-privacy-risk-assessor/>. It runs entirely in the browser and is distinct from the full Python CLI/API/MCP tool documented below.
+
 From the repository root, you can reproduce the CLI walkthrough with one command:
 
 ```bash
@@ -379,6 +383,8 @@ When the API is running (`capra-pia serve` or `uvicorn capra_pia.api:app`), the 
 
 The form presents the risks grouped by category, lets a reviewer select ratings for each risk, submits the assessment to the API, and renders the resulting report for human review.
 
+A separate fully static, client-side-only demo suitable for GitHub Pages is provided in [`docs/`](docs/) and published at <https://gracebilliris.github.io/ai-privacy-risk-assessor/>.
+
 ## Repository layout
 
 This repository follows the structure defined in [`CORE_CONTRACT.md`](CORE_CONTRACT.md):
@@ -389,6 +395,11 @@ ai-privacy-risk-assessor/
 │   ├── risks.yaml
 │   ├── cross_references.yaml
 │   └── MERGE_LOG.md
+├── docs/
+│   ├── index.html
+│   ├── css/
+│   ├── js/
+│   └── data/
 ├── src/capra_pia/
 │   ├── __init__.py
 │   ├── models.py
@@ -405,7 +416,8 @@ ai-privacy-risk-assessor/
 ├── tests/
 │   ├── test_scoring.py
 │   ├── test_api.py
-│   └── test_mcp.py
+│   ├── test_mcp.py
+│   └── test_js_parity.py
 ├── README.md
 ├── CITATION.cff
 └── pyproject.toml

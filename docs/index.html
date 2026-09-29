@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CAPRA AI Privacy Risk Assessor · Client-Side Demo</title>
+    <meta
+      name="description"
+      content="Static GitHub Pages demo of the CAPRA AI Privacy Risk Assessor, running the scoring engine fully in the browser."
+    >
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/scoring.js" defer></script>
+    <script src="./js/app.js" defer></script>
+  </head>
+  <body>
+    <header class="hero">
+      <div class="container">
+        <p class="eyebrow">Client-side demo</p>
+        <h1>CAPRA AI Privacy Risk Assessor</h1>
+        <p>
+          This static demo runs the CAPRA privacy-risk scoring workflow entirely in your browser using the same
+          taxonomy and assessment logic as the Python CLI/API/MCP tool. It is grounded in the published taxonomies
+          <em>Privacy in the Age of AI: A Taxonomy of Data Risks</em> and <em>A Taxonomy of Data Risks in AI and Quantum
+          Computing (QAI) — A Systematic Review</em>.
+        </p>
+        <div class="hero-actions">
+          <a class="button-link" href="#assessment">Start assessment</a>
+          <a class="button-link secondary" href="https://github.com/gracebilliris/ai-privacy-risk-assessor">View repository</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="container">
+        <section class="intro-grid">
+          <article class="panel lead-panel">
+            <p class="eyebrow">How it works</p>
+            <h2>Static taxonomy, local scoring, no backend</h2>
+            <p>
+              The page loads versioned JSON copies of the repository taxonomy from <code>docs/data/</code> and performs
+              the assessment locally in JavaScript. No server-side scoring or external runtime service is used.
+            </p>
+            <p>
+              Leave a risk unrated to preserve the Python tool's <code>unrated_risks</code> behaviour, or explicitly
+              choose <strong>Unknown</strong> or <strong>Not applicable</strong> when that distinction matters to your review.
+            </p>
+          </article>
+
+          <aside class="panel list-card">
+            <p class="eyebrow">Assessment output</p>
+            <h2>Report structure</h2>
+            <ul>
+              <li>Overall score and per-category scores</li>
+              <li>Flagged high-risk items and related cross references</li>
+              <li>Recommendation strings generated from the source definitions</li>
+              <li>Count and list of unrated risks</li>
+            </ul>
+          </aside>
+        </section>
+
+        <section id="assessment" class="panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Assessment form</p>
+              <h2>Rate each privacy risk</h2>
+            </div>
+            <span class="category-count">Static GitHub Pages version</span>
+          </div>
+
+          <div id="ui-error" class="error-box" hidden></div>
+
+          <form id="assessment-form">
+            <div class="panel">
+              <label class="field-label" for="system-name">System name</label>
+              <input
+                id="system-name"
+                name="system_name"
+                type="text"
+                placeholder="e.g. CAPRA research assistant"
+                value="CAPRA Demo System"
+                required
+              >
+            </div>
+
+            <div id="assessment-form-sections" aria-live="polite"></div>
+
+            <div class="form-actions">
+              <button type="submit">Assess</button>
+            </div>
+          </form>
+        </section>
+
+        <section id="results" class="result-stack" hidden>
+          <article class="panel">
+            <p class="eyebrow">Human-readable summary</p>
+            <h2>CLI-style summary</h2>
+            <pre id="summary-output" class="summary-output"></pre>
+          </article>
+
+          <article class="panel">
+            <p class="eyebrow">Overview</p>
+            <div class="score-grid">
+              <div class="score-card">
+                <span class="score-label">Overall score</span>
+                <strong id="overall-score" class="score-value">0.00%</strong>
+              </div>
+              <div class="score-card">
+                <span class="score-label">Flagged high-risk items</span>
+                <strong id="flagged-count" class="score-value">0</strong>
+              </div>
+              <div class="score-card">
+                <span class="score-label">Unrated risks</span>
+                <strong id="unrated-count" class="score-value">0</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel">
+            <p class="eyebrow">Category scores</p>
+            <h2>Breakdown by category</h2>
+            <table class="score-table">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Present</th>
+                  <th>Applicable</th>
+                  <th>Score</th>
+                </tr>
+              </thead>
+              <tbody id="category-score-body"></tbody>
+            </table>
+          </article>
+
+          <article class="panel">
+            <p class="eyebrow">Flagged high-risk items</p>
+            <h2>Top-tertile present risks</h2>
+            <div id="flagged-items"></div>
+          </article>
+
+          <article class="panel">
+            <p class="eyebrow">Recommendations</p>
+            <h2>Definition-based recommendations</h2>
+            <div id="recommendations"></div>
+          </article>
+
+          <article class="panel">
+            <p class="eyebrow">Unrated risks</p>
+            <h2>Outstanding items</h2>
+            <div id="unrated-risks"></div>
+          </article>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        This is a client-side demo of the open-source
+        <a href="https://github.com/gracebilliris/ai-privacy-risk-assessor">CLI/API/MCP tool</a>.
+        Evidence base: <em>Privacy in the Age of AI: A Taxonomy of Data Risks</em> and
+        <em>A Taxonomy of Data Risks in AI and Quantum Computing (QAI) — A Systematic Review</em>.
+      </div>
+    </footer>
+  </body>
+</html>

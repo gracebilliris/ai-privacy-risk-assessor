@@ -1,0 +1,68 @@
+[
+  {
+    "a_risk": "A-ML-03",
+    "b_risk": "B-RA-02",
+    "confidence": "high",
+    "evidence_quote": "B-RA-02 definition names \"memorisation, leakage via outputs, or weak training data protections\" as examples of this broader risk.\n"
+  },
+  {
+    "a_risk": "A-ML-02",
+    "b_risk": "B-RA-02",
+    "confidence": "medium",
+    "evidence_quote": "B-RA-02's \"leakage via outputs\" mirrors A-ML-02's mechanism (reconstructing sensitive data from model outputs/predictions).\n"
+  },
+  {
+    "a_risk": "A-ML-02",
+    "b_risk": "B-RA-04",
+    "confidence": "high",
+    "evidence_quote": "B-RA-04 definition explicitly lists \"model inversion\" as an example attack surface.\n"
+  },
+  {
+    "a_risk": "A-ML-01",
+    "b_risk": "B-RA-04",
+    "confidence": "medium",
+    "evidence_quote": "B-RA-04 definition lists \"unauthorised inference\" as an example, closely related to (though not verbatim) membership inference.\n"
+  },
+  {
+    "a_risk": "A-ML-05",
+    "b_risk": "B-RA-04",
+    "confidence": "medium",
+    "evidence_quote": "B-RA-04 definition lists \"adversarial inputs\" as an example attack surface, matching the general mechanism of adversarial querying.\n"
+  },
+  {
+    "a_risk": "A-ML-04",
+    "b_risk": "B-RA-04",
+    "confidence": "medium",
+    "evidence_quote": "B-RA-04 definition lists \"adversarial inputs\" as an example attack surface; prompt injection is a specific instance of adversarial input.\n"
+  },
+  {
+    "a_risk": "A-DL-05",
+    "b_risk": "B-CI-02",
+    "confidence": "high",
+    "evidence_quote": "B-CI-02 definition explicitly lists \"anonymisation\" (alongside data minimisation, consent tracking) as an example privacy-related control.\n"
+  },
+  {
+    "a_risk": "A-DL-01",
+    "b_risk": "B-CI-01",
+    "confidence": "high",
+    "evidence_quote": "B-CI-01 definition explicitly covers risks \"leading to unauthorised access ... of private data\".\n"
+  },
+  {
+    "a_risk": "A-DL-02",
+    "b_risk": "B-CI-01",
+    "confidence": "medium",
+    "evidence_quote": "B-CI-01 definition names \"poor encryption\" as an example cause, matching A-DL-02's storage-security concern.\n"
+  },
+  {
+    "a_risk": "A-IL-01",
+    "b_risk": "B-CI-01",
+    "confidence": "medium",
+    "evidence_quote": "B-CI-01's \"insufficient authorisation ... leading to unauthorised access\" covers the same mechanism as API endpoint exploitation, at a higher level of abstraction.\n"
+  },
+  {
+    "a_risk": "A-IT-03",
+    "b_risk": "B-CI-01",
+    "confidence": "medium",
+    "evidence_quote": "B-CI-01's \"insufficient authorisation\" is the governance-level counterpart of A-IT-03's excessive/inappropriate access rights.\n"
+  }
+]
