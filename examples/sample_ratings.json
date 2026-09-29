@@ -1,0 +1,12 @@
+{
+  "system_name": "CAPRA Demo System",
+  "ratings": {
+    "A-DL-05": "present",
+    "A-ML-03": "present",
+    "A-IL-04": "not_present",
+    "A-IT-02": "present",
+    "B-GV-01": "present",
+    "B-GV-02": "not_present",
+    "B-RA-01": "unknown"
+  }
+}
