@@ -22,6 +22,7 @@ class Risk(BaseModel):
     frequency_count: int
     frequency_pct: float
     definition: str
+    assessment_prompt: str
     category_tag: Optional[str] = None
     note: Optional[str] = None
 

@@ -128,6 +128,13 @@ a:hover {
   margin-bottom: 0;
 }
 
+.assessment-prompt {
+  padding: 0.6rem 0.8rem;
+  border-left: 3px solid var(--accent);
+  background: rgba(27, 58, 94, 0.08);
+  border-radius: 6px;
+}
+
 .section-heading,
 .result-card-header,
 .risk-card-header {

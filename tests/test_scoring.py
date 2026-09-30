@@ -25,6 +25,7 @@ def test_assess_computes_category_scores_flags_and_unrated() -> None:
             frequency_count=9,
             frequency_pct=90.0,
             definition="The most frequently cited source A issue.",
+            assessment_prompt="Test prompt.",
         ),
         Risk(
             id="A-C1-02",
@@ -35,6 +36,7 @@ def test_assess_computes_category_scores_flags_and_unrated() -> None:
             frequency_count=8,
             frequency_pct=80.0,
             definition="A different source A issue.",
+            assessment_prompt="Test prompt.",
         ),
         Risk(
             id="A-C1-03",
@@ -45,6 +47,7 @@ def test_assess_computes_category_scores_flags_and_unrated() -> None:
             frequency_count=1,
             frequency_pct=10.0,
             definition="A source A issue that is absent in the system.",
+            assessment_prompt="Test prompt.",
         ),
         Risk(
             id="B-C2-01",
@@ -55,6 +58,7 @@ def test_assess_computes_category_scores_flags_and_unrated() -> None:
             frequency_count=6,
             frequency_pct=60.0,
             definition="A source B issue left unrated in the request.",
+            assessment_prompt="Test prompt.",
         ),
     ]
     cross_references = [
@@ -113,6 +117,7 @@ def test_assess_handles_empty_ratings_without_crashing() -> None:
             frequency_count=1,
             frequency_pct=1.0,
             definition="A single taxonomy item.",
+            assessment_prompt="Test prompt.",
         )
     ]
 

@@ -64,6 +64,7 @@ def load_risks(
                         frequency_count=risk_entry["frequency_count"],
                         frequency_pct=risk_entry["frequency_pct"],
                         definition=risk_entry["definition"],
+                        assessment_prompt=risk_entry["assessment_prompt"],
                         category_tag=risk_entry.get("category_tag"),
                         note=risk_entry.get("note"),
                     )

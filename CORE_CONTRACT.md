@@ -57,6 +57,7 @@ class Risk(BaseModel):
     frequency_count: int
     frequency_pct: float
     definition: str
+    assessment_prompt: str    # guiding yes/no question derived from definition, for UI display
     category_tag: str | None = None   # "P" / "S", Paper B only
     note: str | None = None
 

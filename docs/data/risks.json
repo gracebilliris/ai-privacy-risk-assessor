@@ -8,6 +8,7 @@
     "frequency_count": 7,
     "frequency_pct": 1.47,
     "definition": "Occurs when data is accessed by individuals or systems without proper authorisation, either externally (hackers) or internally (employees).\n",
+    "assessment_prompt": "Can your data be accessed by individuals or systems without proper authorisation, whether external attackers or internal staff who shouldn't have access?\n",
     "category_tag": null,
     "note": null
   },
@@ -20,6 +21,7 @@
     "frequency_count": 23,
     "frequency_pct": 4.83,
     "definition": "Refers to storage of data without adequate security measures such as encryption, access controls, or secure cloud configurations.\n",
+    "assessment_prompt": "Is any of your data stored without adequate security measures such as encryption, access controls, or secure cloud configuration?\n",
     "category_tag": null,
     "note": null
   },
@@ -32,6 +34,7 @@
     "frequency_count": 26,
     "frequency_pct": 5.46,
     "definition": "Using datasets from unknown or unreliable sources that may contain sensitive, inaccurate, or illegal data.\n",
+    "assessment_prompt": "Do you use datasets from unknown or unreliable sources that might contain sensitive, inaccurate, or illegal data?\n",
     "category_tag": null,
     "note": null
   },
@@ -44,6 +47,7 @@
     "frequency_count": 15,
     "frequency_pct": 3.15,
     "definition": "Storing personal or sensitive data longer than necessary, increasing exposure to potential breaches.\n",
+    "assessment_prompt": "Do you retain personal or sensitive data for longer than necessary, increasing exposure to potential breaches?\n",
     "category_tag": null,
     "note": null
   },
@@ -56,6 +60,7 @@
     "frequency_count": 35,
     "frequency_pct": 7.35,
     "definition": "Attempts to anonymise data fail, leaving information that can still identify individuals.\n",
+    "assessment_prompt": "Could your anonymisation methods fail, leaving data that can still identify individuals?\n",
     "category_tag": null,
     "note": null
   },
@@ -68,6 +73,7 @@
     "frequency_count": 40,
     "frequency_pct": 8.4,
     "definition": "Attackers attempt to determine whether specific data records were used in training an AI model.\n",
+    "assessment_prompt": "Could an attacker determine whether a specific person's data record was used to train your model?\n",
     "category_tag": null,
     "note": null
   },
@@ -80,6 +86,7 @@
     "frequency_count": 35,
     "frequency_pct": 7.35,
     "definition": "Reconstructing sensitive or private data from model outputs or predictions.\n",
+    "assessment_prompt": "Could someone reconstruct sensitive or private data from your model's outputs or predictions?\n",
     "category_tag": null,
     "note": null
   },
@@ -92,6 +99,7 @@
     "frequency_count": 42,
     "frequency_pct": 8.82,
     "definition": "AI models unintentionally \"remember\" exact sensitive information from the training dataset in their outputs.\n",
+    "assessment_prompt": "Could your AI model unintentionally \"remember\" and reveal exact sensitive information from its training data in its outputs?\n",
     "category_tag": null,
     "note": null
   },
@@ -104,6 +112,7 @@
     "frequency_count": 5,
     "frequency_pct": 1.05,
     "definition": "Malicious inputs designed to make AI reveal hidden or confidential information.\n",
+    "assessment_prompt": "Could a malicious input be crafted to make your AI reveal hidden or confidential information?\n",
     "category_tag": null,
     "note": null
   },
@@ -116,6 +125,7 @@
     "frequency_count": 5,
     "frequency_pct": 1.05,
     "definition": "Systematic attempts to extract private or sensitive information by exploiting model behaviour.\n",
+    "assessment_prompt": "Could someone systematically query your model to extract private or sensitive information by exploiting its behaviour?\n",
     "category_tag": null,
     "note": null
   },
@@ -128,6 +138,7 @@
     "frequency_count": 33,
     "frequency_pct": 6.93,
     "definition": "Unauthorised use or abuse of AI system endpoints, which can expose data or functionality.\n",
+    "assessment_prompt": "Could your AI system's API endpoints be misused or abused in ways that expose data or functionality?\n",
     "category_tag": null,
     "note": null
   },
@@ -140,6 +151,7 @@
     "frequency_count": 28,
     "frequency_pct": 5.88,
     "definition": "Weaknesses in networks (e.g., unpatched servers, open ports, insecure protocols) that can be exploited to access data.\n",
+    "assessment_prompt": "Are there weaknesses in your network (e.g. unpatched servers, open ports, insecure protocols) that could be exploited to access data?\n",
     "category_tag": null,
     "note": null
   },
@@ -152,6 +164,7 @@
     "frequency_count": 5,
     "frequency_pct": 1.05,
     "definition": "Introduction of malicious or vulnerable components from third-party software, libraries, or pre-trained models.\n",
+    "assessment_prompt": "Could malicious or vulnerable components enter your system via third-party software, libraries, or pre-trained models?\n",
     "category_tag": null,
     "note": null
   },
@@ -164,6 +177,7 @@
     "frequency_count": 34,
     "frequency_pct": 7.14,
     "definition": "Insecure default settings or misconfigurations in AI platforms that expose data or functionality.\n",
+    "assessment_prompt": "Could insecure default settings or misconfigurations in your AI platform expose data or functionality?\n",
     "category_tag": null,
     "note": null
   },
@@ -176,6 +190,7 @@
     "frequency_count": 20,
     "frequency_pct": 4.2,
     "definition": "Recording sensitive information in logs or telemetry without proper safeguards or redaction.\n",
+    "assessment_prompt": "Do your logs or telemetry record sensitive information without proper safeguards or redaction?\n",
     "category_tag": null,
     "note": null
   },
@@ -188,6 +203,7 @@
     "frequency_count": 25,
     "frequency_pct": 5.25,
     "definition": "Intentional actions by internal personnel to steal, expose, or misuse sensitive data.\n",
+    "assessment_prompt": "Could an internal person intentionally steal, expose, or misuse sensitive data?\n",
     "category_tag": null,
     "note": null
   },
@@ -200,6 +216,7 @@
     "frequency_count": 45,
     "frequency_pct": 9.45,
     "definition": "Accidental mistakes by individuals, such as sending data to wrong recipients or mismanaging sensitive files.\n",
+    "assessment_prompt": "Could accidental mistakes by staff, such as sending data to the wrong recipient or mismanaging sensitive files, expose data?\n",
     "category_tag": null,
     "note": "Single most cited risk factor across the whole taxonomy."
   },
@@ -212,6 +229,7 @@
     "frequency_count": 37,
     "frequency_pct": 7.77,
     "definition": "Excessive or inappropriate access rights granted to employees or contractors, increasing the risk of misuse.\n",
+    "assessment_prompt": "Do employees or contractors have excessive or inappropriate access rights that increase the risk of misuse?\n",
     "category_tag": null,
     "note": null
   },
@@ -224,6 +242,7 @@
     "frequency_count": 16,
     "frequency_pct": 3.36,
     "definition": "Lack of awareness, training, or adherence to policies, resulting in unintentional data exposure.\n",
+    "assessment_prompt": "Could a lack of awareness, training, or adherence to policy result in unintentional data exposure?\n",
     "category_tag": null,
     "note": null
   },
@@ -236,6 +255,7 @@
     "frequency_count": 50,
     "frequency_pct": 7.0,
     "definition": "Risks associated with the alignment of AI governance frameworks with privacy compliance standards, leading to inadequate privacy protections.\n",
+    "assessment_prompt": "Are your AI governance frameworks properly aligned with privacy compliance standards, or could gaps lead to inadequate privacy protections?\n",
     "category_tag": "P",
     "note": null
   },
@@ -248,6 +268,7 @@
     "frequency_count": 39,
     "frequency_pct": 5.46,
     "definition": "Risks arising from changing regulatory requirements that may leave an organisation non-compliant with new laws or privacy standards.\n",
+    "assessment_prompt": "Could changing regulatory requirements leave your organisation non- compliant with new laws or privacy standards?\n",
     "category_tag": "P",
     "note": null
   },
@@ -260,6 +281,7 @@
     "frequency_count": 30,
     "frequency_pct": 4.2,
     "definition": "Risks related to non-compliance with varying data protection laws across different countries, impacting international data flow and sovereignty.\n",
+    "assessment_prompt": "Could non-compliance with varying data protection laws across countries affect your international data flows or data sovereignty obligations?\n",
     "category_tag": "P",
     "note": null
   },
@@ -272,6 +294,7 @@
     "frequency_count": 28,
     "frequency_pct": 3.92,
     "definition": "Risks from unclear or inconsistent regulations surrounding the integration of AI with quantum systems, potentially leading to privacy lapses.\n",
+    "assessment_prompt": "Are there unclear or inconsistent regulations around integrating AI with quantum systems that could lead to privacy lapses for your system?\n",
     "category_tag": "P",
     "note": null
   },
@@ -284,6 +307,7 @@
     "frequency_count": 47,
     "frequency_pct": 6.58,
     "definition": "Risks related to the privacy and security implications of rapidly evolving technologies — especially AI and quantum systems — including the lack of mature standards, ethical uncertainty, and risks from novel data processing capabilities.\n",
+    "assessment_prompt": "Does your system use rapidly evolving technologies, especially AI or quantum, that lack mature standards, creating ethical uncertainty or novel data-processing risks?\n",
     "category_tag": "P",
     "note": null
   },
@@ -296,6 +320,7 @@
     "frequency_count": 27,
     "frequency_pct": 3.78,
     "definition": "Risks of privacy breaches and security vulnerabilities due to exposure of personal or sensitive data during AI model training, including memorisation, leakage via outputs, or weak training data protections.\n",
+    "assessment_prompt": "Could personal or sensitive data be exposed during model training, via memorisation, output leakage, or weak training-data protections?\n",
     "category_tag": "S",
     "note": null
   },
@@ -308,6 +333,7 @@
     "frequency_count": 23,
     "frequency_pct": 3.22,
     "definition": "Risks associated with the security and privacy limitations of current cryptographic methods in the face of quantum computing, and uncertainties around post-quantum cryptographic algorithm adoption, implementation, and resilience.\n",
+    "assessment_prompt": "Could your current cryptographic methods be vulnerable to quantum computing, or is there uncertainty about your post-quantum cryptography adoption or implementation?\n",
     "category_tag": "S",
     "note": null
   },
@@ -320,6 +346,7 @@
     "frequency_count": 23,
     "frequency_pct": 3.22,
     "definition": "Threats from the use or misuse of AI that introduce new attack surfaces or amplify privacy risks, such as adversarial inputs, model inversion, data poisoning, and unauthorised inference.\n",
+    "assessment_prompt": "Could new AI-related attack surfaces, such as adversarial inputs, model inversion, data poisoning, or unauthorised inference, amplify privacy risk for your system?\n",
     "category_tag": "S",
     "note": null
   },
@@ -332,6 +359,7 @@
     "frequency_count": 36,
     "frequency_pct": 5.04,
     "definition": "Risks stemming from inadequate security measures, such as weak authentication, insufficient authorisation, or poor encryption, leading to unauthorised access or exposure of private data.\n",
+    "assessment_prompt": "Are there weak authentication, insufficient authorisation, or poor encryption practices that could lead to unauthorised access to private data?\n",
     "category_tag": "S",
     "note": null
   },
@@ -344,6 +372,7 @@
     "frequency_count": 24,
     "frequency_pct": 3.36,
     "definition": "Gaps in the design or enforcement of privacy-related controls (e.g., anonymisation, data minimisation, consent tracking) within AI workflows, which create both privacy vulnerabilities and potential security loopholes.\n",
+    "assessment_prompt": "Are there gaps in how privacy controls, such as anonymisation, data minimisation, or consent tracking, are designed or enforced in your AI workflows?\n",
     "category_tag": "P",
     "note": null
   },
@@ -356,6 +385,7 @@
     "frequency_count": 24,
     "frequency_pct": 3.36,
     "definition": "Shortcomings in technical safeguards meant to enforce privacy — such as differential privacy, homomorphic encryption, or secure federated learning — which can also weaken system security if poorly implemented or misconfigured.\n",
+    "assessment_prompt": "Are technical privacy safeguards, such as differential privacy, homomorphic encryption, or secure federated learning, missing, weak, or poorly implemented in your system?\n",
     "category_tag": "P",
     "note": null
   },
@@ -368,6 +398,7 @@
     "frequency_count": 23,
     "frequency_pct": 3.22,
     "definition": "Risks from insufficient or poorly integrated privacy protection mechanisms in AI systems, including both organisational policy gaps and technical safeguards, potentially compromising both user privacy and system security.\n",
+    "assessment_prompt": "Are privacy protection mechanisms, whether policy or technical, insufficiently integrated into your AI system, risking both privacy and security?\n",
     "category_tag": "P",
     "note": null
   },
@@ -380,6 +411,7 @@
     "frequency_count": 49,
     "frequency_pct": 6.86,
     "definition": "Risks from insufficient transparency about how user data is handled, leading to violations of user rights.\n",
+    "assessment_prompt": "Is there insufficient transparency about how user data is handled, which could lead to violations of user rights?\n",
     "category_tag": "P",
     "note": null
   },
@@ -392,6 +424,7 @@
     "frequency_count": 49,
     "frequency_pct": 6.86,
     "definition": "Risks from AI systems that introduce bias or unfairness in data handling, impacting user privacy.\n",
+    "assessment_prompt": "Could bias or unfairness in your AI system's data handling impact user privacy?\n",
     "category_tag": "P",
     "note": null
   },
@@ -404,6 +437,7 @@
     "frequency_count": 47,
     "frequency_pct": 6.58,
     "definition": "Risks from inadequate mechanisms for users to give informed consent and control how their data is used.\n",
+    "assessment_prompt": "Are your mechanisms for obtaining informed user consent and letting users control their data adequate?\n",
     "category_tag": "P",
     "note": "Consolidated: the source table also lists a near-identical row \"User Consent & Control Risks\" (Count: 38; 5.32%) which was judged a duplication artefact and merged into this item rather than kept as a separate risk — dropping tool-list count for Paper B from 22 to 21 (kept for auditability, not deleted from the record; see MERGE_LOG.md).\n"
   },
@@ -416,6 +450,7 @@
     "frequency_count": 42,
     "frequency_pct": 5.88,
     "definition": "Risks from inadequate processes for obtaining informed consent, potentially violating privacy rights.\n",
+    "assessment_prompt": "Could inadequate informed-consent processes potentially violate user privacy rights?\n",
     "category_tag": "P",
     "note": null
   },
@@ -428,6 +463,7 @@
     "frequency_count": 39,
     "frequency_pct": 5.46,
     "definition": "Risks from users losing control over their personal data when interacting with AI systems.\n",
+    "assessment_prompt": "Could users lose control over their personal data when interacting with your AI system?\n",
     "category_tag": "P",
     "note": null
   },
@@ -440,6 +476,7 @@
     "frequency_count": 23,
     "frequency_pct": 3.22,
     "definition": "Risks due to insufficient monitoring of compliance with privacy regulations, leading to potential violations.\n",
+    "assessment_prompt": "Is your monitoring of privacy-regulation compliance insufficient, risking undetected violations?\n",
     "category_tag": "P",
     "note": null
   },
@@ -452,6 +489,7 @@
     "frequency_count": 23,
     "frequency_pct": 3.22,
     "definition": "Risks from lack of continuous auditing and bias mitigation in AI systems that could compromise privacy.\n",
+    "assessment_prompt": "Does your system lack continuous auditing and bias-mitigation processes that could otherwise catch privacy issues?\n",
     "category_tag": "P",
     "note": null
   },
@@ -464,6 +502,7 @@
     "frequency_count": 23,
     "frequency_pct": 3.22,
     "definition": "Risks from inadequate monitoring of new and emerging AI privacy threats, creating vulnerabilities.\n",
+    "assessment_prompt": "Is your monitoring of new and emerging AI privacy threats inadequate, leaving vulnerabilities undetected?\n",
     "category_tag": "P",
     "note": null
   },
@@ -476,6 +515,7 @@
     "frequency_count": 23,
     "frequency_pct": 3.22,
     "definition": "Risks from the inability to detect and respond to new privacy threats from emerging AI technologies.\n",
+    "assessment_prompt": "Would your organisation struggle to detect and respond to new privacy threats from emerging AI technologies?\n",
     "category_tag": "P",
     "note": null
   }

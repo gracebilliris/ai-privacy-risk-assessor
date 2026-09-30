@@ -56,6 +56,7 @@
         </div>
         <p class="risk-definition">${escapeHtml(risk.definition).trim()}</p>
         ${noteMarkup}
+        <p class="assessment-prompt"><strong>Ask yourself:</strong> ${escapeHtml(risk.assessment_prompt).trim()}</p>
         <label class="field-label" for="rating__${escapeHtml(risk.id)}">Rating</label>
         <select id="rating__${escapeHtml(risk.id)}" name="rating__${escapeHtml(risk.id)}">
           <option value="" selected>— Not rated —</option>
