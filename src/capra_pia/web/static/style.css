@@ -251,6 +251,18 @@ button:hover {
   padding-left: 1.2rem;
 }
 
+.footer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  color: var(--slate, #4a5c74);
+  font-size: 0.92rem;
+}
+
+.footer li {
+  margin-bottom: 0.4rem;
+}
+
 details {
   margin-top: 0.75rem;
 }

@@ -82,7 +82,10 @@
 
               <details>
                 <summary>Citation</summary>
-                <p class="citation">{{ risk.source_citation }}</p>
+                <p class="citation">
+                  <a href="#ref-paper-{{ risk.source_paper | lower }}" title="{{ risk.source_citation }}">Source citation*</a>
+                  — see references in the page footer.
+                </p>
               </details>
             </article>
           {% endfor %}

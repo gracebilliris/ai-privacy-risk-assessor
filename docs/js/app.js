@@ -66,7 +66,10 @@
         </select>
         <details class="citation-block">
           <summary>Source citation</summary>
-          <p>${escapeHtml(risk.source_citation)}</p>
+          <p>
+            <a href="#ref-paper-${escapeHtml(risk.source_paper.toLowerCase())}" title="${escapeHtml(risk.source_citation)}">Source citation*</a>
+            — see References below.
+          </p>
         </details>
       </article>
     `;

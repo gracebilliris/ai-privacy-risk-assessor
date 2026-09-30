@@ -77,7 +77,11 @@
             </div>
 
             <p class="risk-definition">{{ flagged.risk.definition }}</p>
-            <p class="citation"><strong>Citation:</strong> {{ flagged.risk.source_citation }}</p>
+            <p class="citation">
+              <strong>Citation:</strong>
+              <a href="#ref-paper-{{ flagged.risk.source_paper | lower }}" title="{{ flagged.risk.source_citation }}">Source citation*</a>
+              — see references in the page footer.
+            </p>
 
             {% if flagged.related_cross_references %}
               <div class="cross-ref-block">
