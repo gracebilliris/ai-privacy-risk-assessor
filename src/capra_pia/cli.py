@@ -73,10 +73,13 @@ def _print_summary(result: Any) -> None:
     print(f"\nUnrated risks: {len(result.unrated_risks)}")
 
 
-def _cmd_list_risks(_: argparse.Namespace) -> int:
+def _cmd_list_risks(args: argparse.Namespace) -> int:
     risks, _ = _load_taxonomy()
     for risk in risks:
         print(f"{risk.id}\t{risk.name}\t{risk.category}\t{risk.source_paper}")
+        if args.verbose:
+            print(f"    Definition: {risk.definition.strip()}")
+            print(f"    Ask yourself: {risk.assessment_prompt.strip()}")
     return 0
 
 
@@ -101,6 +104,11 @@ def build_parser() -> argparse.ArgumentParser:
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     list_parser = subparsers.add_parser("list-risks", help="List all risks")
+    list_parser.add_argument(
+        "-v", "--verbose",
+        action="store_true",
+        help="Also show each risk's definition and assessment guiding question",
+    )
     list_parser.set_defaults(func=_cmd_list_risks)
 
     assess_parser = subparsers.add_parser("assess", help="Assess a ratings JSON file")

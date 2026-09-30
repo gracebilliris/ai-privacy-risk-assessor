@@ -284,6 +284,12 @@ List the available risks:
 capra-pia list-risks
 ```
 
+Add `--verbose` to also show each risk's definition and its assessment guiding question:
+
+```bash
+capra-pia list-risks --verbose
+```
+
 Assess a system from a JSON ratings file:
 
 ```bash

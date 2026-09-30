@@ -122,7 +122,7 @@ def assess(request: AssessmentRequest, risks: list[Risk], cross_refs: list[Cross
 
 ## `src/capra_pia/cli.py` (developer-core)
 
-- `capra-pia list-risks` — print all risks (id, name, category, source).
+- `capra-pia list-risks [--verbose]` — print all risks (id, name, category, source); `--verbose` also prints each risk's definition and assessment guiding question.
 - `capra-pia assess <ratings.json>` — load a JSON file of
   `{risk_id: rating}` pairs, run `assess()`, print JSON + a human-readable
   summary table.

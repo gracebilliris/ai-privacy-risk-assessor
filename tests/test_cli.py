@@ -33,6 +33,18 @@ def test_list_risks_prints_all_40_rows(repo_root: Path) -> None:
     assert first_columns[3] == "A"
 
 
+def test_list_risks_verbose_includes_definition_and_prompt(repo_root: Path) -> None:
+    result = _run_cli("list-risks", "--verbose", cwd=repo_root)
+
+    assert result.returncode == 0, result.stderr
+    assert "A-DL-01" in result.stdout
+    assert "Definition:" in result.stdout
+    assert "Ask yourself:" in result.stdout
+    # 40 risk rows + 40 definition lines + 40 prompt lines
+    lines = [line for line in result.stdout.splitlines() if line.strip()]
+    assert len(lines) == 120
+
+
 def test_assess_produces_valid_json_and_summary(tmp_path: Path, repo_root: Path) -> None:
     ratings_path = tmp_path / "ratings.json"
     ratings_path.write_text(
