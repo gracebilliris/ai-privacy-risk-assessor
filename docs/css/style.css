@@ -167,6 +167,27 @@ a:hover {
   padding-left: 1.2rem;
 }
 
+.steps-list {
+  padding-left: 1.4rem;
+}
+
+.steps-list > li {
+  margin-bottom: 0.9rem;
+}
+
+.steps-list > li:last-child {
+  margin-bottom: 0;
+}
+
+.steps-list ul {
+  margin: 0.5rem 0 0.5rem 0;
+  padding-left: 1.2rem;
+}
+
+.steps-list ul li {
+  margin-bottom: 0.25rem;
+}
+
 .plain-list-columns {
   columns: 2;
   column-gap: 1.5rem;

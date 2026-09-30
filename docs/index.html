@@ -32,23 +32,55 @@
 
     <main class="page">
       <div class="container">
+        <section class="panel">
+          <p class="eyebrow">Getting started</p>
+          <h2>How to use this tool</h2>
+          <ol class="plain-list steps-list">
+            <li>
+              <strong>Enter a system name.</strong> A short label for whatever you're assessing
+              (e.g. "Customer support chatbot" or "Internal HR AI assistant").
+            </li>
+            <li>
+              <strong>Rate each risk below.</strong> The risks are grouped by category, from both source
+              taxonomies. For every risk, choose one option from its dropdown:
+              <ul>
+                <li><strong>Present</strong> — this risk exists in your system today.</li>
+                <li><strong>Not present</strong> — you've checked, and this risk doesn't apply / is mitigated.</li>
+                <li><strong>Not applicable</strong> — this risk category is out of scope for your system.</li>
+                <li><strong>Unknown</strong> — you haven't investigated this yet.</li>
+              </ul>
+              You don't have to rate every risk. Anything left as <strong>— Not rated —</strong> is treated the
+              same as "unknown" and listed under <em>Unrated risks</em> in your report, so you can see at a
+              glance what still needs investigating.
+            </li>
+            <li>
+              <strong>Click "Assess".</strong> Your report is generated instantly, entirely in your browser —
+              nothing you enter is sent to a server. The page loads a static copy of the taxonomy once, then
+              scores everything locally in JavaScript.
+            </li>
+            <li>
+              <strong>Review your report.</strong> You'll get an overall score, a breakdown by category,
+              any risks flagged as high-priority (the most frequently reported risks in the underlying research
+              that you marked as present), plain-language recommendations, and the list of unrated risks to
+              follow up on.
+            </li>
+          </ol>
+        </section>
+
         <section class="intro-grid">
-          <article class="panel lead-panel">
-            <p class="eyebrow">How it works</p>
-            <h2>Static taxonomy, local scoring, no backend</h2>
+          <article class="panel">
+            <p class="eyebrow">Under the hood</p>
+            <h2>Same engine as the CLI/API/MCP tool</h2>
             <p>
-              The page loads versioned JSON copies of the repository taxonomy from <code>docs/data/</code> and performs
-              the assessment locally in JavaScript. No server-side scoring or external runtime service is used.
-            </p>
-            <p>
-              Leave a risk unrated to preserve the Python tool's <code>unrated_risks</code> behaviour, or explicitly
-              choose <strong>Unknown</strong> or <strong>Not applicable</strong> when that distinction matters to your review.
+              This page runs the identical scoring logic as the Python CLI/API/MCP tool, ported to JavaScript and
+              tested against it for exact parity. It's grounded in the published taxonomies
+              <em>Privacy in the Age of AI: A Taxonomy of Data Risks</em> and <em>A Taxonomy of Data Risks in AI and
+              Quantum Computing (QAI) — A Systematic Review</em>.
             </p>
           </article>
 
           <aside class="panel list-card">
-            <p class="eyebrow">Assessment output</p>
-            <h2>Report structure</h2>
+            <p class="eyebrow">Your report will include</p>
             <ul>
               <li>Overall score and per-category scores</li>
               <li>Flagged high-risk items and related cross references</li>
